@@ -1,10 +1,10 @@
 <div align="center">
-    <img src="/assets/Ansible.png" alt="Ansible Logo" style="width: 200px; height: auto;">
+    <img src="Ansible.png" alt="Ansible Logo" style="width: 200px; height: auto;">
 </div>
 
 # Ansible Demo with Docker
 
-Created by Raghav Agarwal | SAP- 500108301
+
 
 This project demonstrates how to use Ansible to manage multiple Docker containers as target servers. It showcases Ansible's ability to automate server configuration and management across multiple hosts.
 
@@ -107,10 +107,7 @@ sudo apt update
 sudo apt install -y ansible openssh-client
 ```
 
-![image](/assets/image1.png)
-![image](/assets/image3.png)
-![image](/assets/image2.png)
-![image](/assets/image21.png)
+
 
 ### 2. Create Project Directory
 
@@ -120,7 +117,7 @@ cd ~/ansible-demo
 mkdir -p .ssh
 ```
 
-![image](/assets/image4.png)
+
 
 ### 3. Generate SSH Keys
 
@@ -134,7 +131,6 @@ chmod 600 .ssh/ansible_key
 chmod 644 .ssh/ansible_key.pub
 ```
 
-![image](/assets/image5.png)
 
 ### 4. Create Docker Containers
 
@@ -173,7 +169,7 @@ for i in {1..5}; do
 done
 ```
 
-![image](/assets/image6.png)
+
 
 ### 5. Verify containers are up and running:
 
@@ -181,7 +177,7 @@ done
 docker ps
 ```
 
-![image](/assets/image7.png)
+
 
 ### 6. Find IP of docker containers (optional ps~ we wont use this because of port mapping):
 
@@ -192,7 +188,7 @@ for i in {1..5}; do
 done
 ```
 
-![image](/assets/image8.png)
+
 
 ### 7. Create Inventory File in the current directory
 
@@ -212,8 +208,6 @@ ansible_ssh_private_key_file=./.ssh/ansible_key
 ansible_python_interpreter=/usr/bin/python3
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 ```
-
-![image](/assets/image9.png)
 
 ### 8. Create Ansible Playbook in the current directory
 
@@ -258,7 +252,7 @@ Create `playbook.yml`:
                 - "Disk space: {{ disk_space.stdout_lines }}"
 ```
 
-![image](/assets/image10.png)
+
 
 ### 9. Run Ansible Playbook
 
@@ -266,9 +260,7 @@ Create `playbook.yml`:
 ansible-playbook -i inventory.ini playbook.yml
 ```
 
-![image](/assets/image11.png)
-![image](/assets/image12.png)
-![image](/assets/image22.png)
+
 
 ## Verification
 
@@ -300,11 +292,7 @@ for i in {1..5}; do
 done
 ```
 
-![image](/assets/image13.png)
-![image](/assets/image14.png)
-![image](/assets/image15.png)
-![image](/assets/image16.png)
-![image](/assets/image17.png)
+
 
 ### Ansible Verification
 
@@ -316,8 +304,7 @@ ansible servers -i inventory.ini -m stat -a "path=/root/test_file.txt"
 ansible servers -i inventory.ini -m command -a "python3 --version"
 ```
 
-![image](/assets/image18.png)
-![image](/assets/image19.png)
+
 
 ## Cleanup
 
@@ -334,7 +321,7 @@ done
 rm -rf .ssh
 ```
 
-![image](/assets/image20.png)
+
 
 ## Troubleshooting
 
